@@ -9,7 +9,7 @@ namespace CSSocketClient
     {
         public Game()
         {
-            cards = new List<Card>();
+            cards = new List<LogicCard>();
             croupier = new Croupier();
             players = new List<Player>();
             players.Add(new Player());
@@ -18,6 +18,7 @@ namespace CSSocketClient
 
         public List<Player> players;
         public Croupier croupier;
-        public List<Card> cards { get; set; }
+        public List<LogicCard> cards { get; set; }
+        public List<LogicCard> tableCards { get; set; }
     }
 }

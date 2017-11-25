@@ -8,11 +8,11 @@ namespace CSSocketClient
     public enum Figures { Two , Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King, Ace }
     public enum Colors { C, S, D, H }
 
-    public class Card
+    public class LogicCard
     {
-        public Card() { }
+        public LogicCard() { }
 
-        public Card(Figures figure, Colors color)
+        public LogicCard(Figures figure, Colors color)
         {
             this.figure = figure;
             this.color = color;

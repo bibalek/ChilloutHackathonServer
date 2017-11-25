@@ -7,14 +7,14 @@ namespace CSSocketClient
 {
     public class Croupier
     {
-        public List<Card> GenerateDeck()
+        public List<LogicCard> GenerateDeck()
         {
-            List<Card> cardsToReturn = new List<Card>();
+            List<LogicCard> cardsToReturn = new List<LogicCard>();
             foreach (Colors color in Enum.GetValues(typeof(Colors)))
             {
                 foreach (Figures figure in Enum.GetValues(typeof(Figures)))
                 {
-                    Card cartToAdd = new Card(figure, color);
+                    LogicCard cartToAdd = new LogicCard(figure, color);
                     cardsToReturn.Add(cartToAdd);
                 }
             }
@@ -23,40 +23,50 @@ namespace CSSocketClient
             return shuffledCards;
         }
 
-        public void ShowCards(List<Card> cards)
+        public void ShowCards(List<LogicCard> cards)
         {
-            foreach (Card card in cards)
+            foreach (LogicCard card in cards)
             {
                 Console.WriteLine(card.figure + " " + card.color);
             }
         }
 
-        public List<Card> DealHand(List<Card> cards)
+        public List<LogicCard> DealHand(List<LogicCard> cards)
         {
-            List<Card> handToGive = new List<Card>();
+            List<LogicCard> handToGive = new List<LogicCard>();
 
-            Card first = GetOneCardFromDeck(cards);
-            Card second = GetOneCardFromDeck(cards);
+            LogicCard first = GetOneCardFromDeck(cards);
+            LogicCard second = GetOneCardFromDeck(cards);
 
             handToGive.Add(first);
             handToGive.Add(second);
             return handToGive;
         }
 
-        public Card GetOneCardFromDeck(List<Card> cards)
+        public LogicCard GetOneCardFromDeck(List<LogicCard> cards)
         {
-            Card card = cards[cards.Count - 1];
+            LogicCard card = cards[cards.Count - 1];
             cards.RemoveAt(cards.Count - 1);
             return card;
         }
 
-        public List<Card> DealFlop(List<Card> cards)
+        public List<LogicCard> GetTableCards(List<LogicCard> cards)
         {
-            List<Card> flop = new List<Card>();
+            List<LogicCard> cardsToReturn = new List<LogicCard>();
+            for(int cardIndex = 0; cardIndex < 5; cardIndex++)
+            {
+                cardsToReturn.Add(GetOneCardFromDeck(cards));
+            }
+            return cardsToReturn;
+        }
+
+        public List<LogicCard> DealFlop(List<LogicCard> cards)
+        {
+            List<LogicCard> flop = new List<LogicCard>();
             //without burned one
-            Card first = GetOneCardFromDeck(cards);
-            Card second = GetOneCardFromDeck(cards);
-            Card third = GetOneCardFromDeck(cards);
+            LogicCard first = GetOneCardFromDeck(cards);
+            LogicCard second = GetOneCardFromDeck(cards);
+            LogicCard third = GetOneCardFromDeck(cards);
 
             flop.Add(first);
             flop.Add(second);
@@ -64,20 +74,20 @@ namespace CSSocketClient
             return flop;
         }
 
-        public List<Card> DealTurn(List<Card> cards)
+        public List<LogicCard> DealTurn(List<LogicCard> cards)
         {
-            List<Card> turn = new List<Card>();
+            List<LogicCard> turn = new List<LogicCard>();
 
-            Card first = GetOneCardFromDeck(cards);
+            LogicCard first = GetOneCardFromDeck(cards);
             turn.Add(first);
             return turn;
         }
 
-        public List<Card> DealRiver(List<Card> cards)
+        public List<LogicCard> DealRiver(List<LogicCard> cards)
         {
-            List<Card> river = new List<Card>();
+            List<LogicCard> river = new List<LogicCard>();
 
-            Card first = GetOneCardFromDeck(cards);
+            LogicCard first = GetOneCardFromDeck(cards);
             river.Add(first);
             return river;
         }
