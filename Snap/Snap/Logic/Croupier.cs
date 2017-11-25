@@ -27,7 +27,7 @@ namespace CSSocketClient
         {
             foreach (Card card in cards)
             {
-                Console.WriteLine(card.color + "  " + card.figure);
+                Console.WriteLine(card.figure + " " + card.color);
             }
         }
 
