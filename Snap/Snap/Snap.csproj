@@ -58,6 +58,9 @@
     <Reference Include="Microsoft.Win32.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Win32.Primitives.4.0.1\lib\net46\Microsoft.Win32.Primitives.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="protobuf-net, Version=2.3.2.0, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL">
       <HintPath>..\packages\protobuf-net.2.3.2\lib\net40\protobuf-net.dll</HintPath>
     </Reference>
@@ -123,6 +126,7 @@
     <Compile Include="Logic\Game.cs" />
     <Compile Include="Logic\Player.cs" />
     <Compile Include="Logic\Program.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="ServerCommunication\PokerTransmissionProtocol.cs" />
     <Compile Include="ServerCommunication\Program.cs" />
     <Compile Include="Snap\AssemblyInfo.cs" />
