@@ -182,5 +182,54 @@ namespace SnapCall
 				return null;
 			}
 		}
-	}
+
+        public void GetBestHandFromSeven()
+        {
+            Hand tmpHand = new Hand();
+            Hand bestHand = new Hand();
+
+            tmpHand.Cards = new List<Card>();
+            bestHand.Cards = new List<Card>();
+
+
+            for (int i = 0; i < 7; i++)
+            {
+                for (int j = i + 1; j < 7; j++)
+                {
+                    for (int k = 0; k < 7; k++)
+                    {
+                        if (k != j && k != i)
+                        {
+                            tmpHand.Cards.Add(this.Cards.ElementAt(k));
+                        }
+                    }
+                    if (bestHand.Cards.Count != 0)
+                    {
+                        if (bestHand.GetStrength().CompareTo(tmpHand.GetStrength()) == -1)
+                        {
+                            bestHand.Cards = new List<Card>();
+                            foreach (Card card in tmpHand.Cards)
+                            {
+                                bestHand.Cards.Add(card);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        bestHand.Cards = new List<Card>();
+                        foreach (Card card in tmpHand.Cards)
+                        {
+                            bestHand.Cards.Add(card);
+                        }
+                    }
+                    tmpHand.Cards.Clear();
+                }
+            }
+
+            foreach (Card card in bestHand.Cards)
+            {
+                Console.WriteLine(card.Rank + " " + card.Suit);
+            }
+        }
+    }
 }
