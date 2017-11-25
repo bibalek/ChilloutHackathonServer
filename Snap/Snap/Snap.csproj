@@ -123,6 +123,8 @@
     <Compile Include="Logic\Game.cs" />
     <Compile Include="Logic\Player.cs" />
     <Compile Include="Logic\Program.cs" />
+    <Compile Include="ServerCommunication\PokerTransmissionProtocol.cs" />
+    <Compile Include="ServerCommunication\Program.cs" />
     <Compile Include="Snap\AssemblyInfo.cs" />
     <Compile Include="Snap\Card.cs" />
     <Compile Include="Snap\Deck.cs" />
@@ -140,8 +142,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ServerCommunication\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
